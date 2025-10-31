@@ -73,6 +73,15 @@ class SolicitudVacaciones {
     ]);
     return true;
   }
+
+  static async solicitudMensual(mes, anio) {
+    const [rows] = await db.execute(
+      "SELECT u.IDempleado, u.Nombre, f.nombre_filial, p.nombre AS nombre_puesto,SUM(dias_calculados)AS dias_calculados FROM vacaciones_solicitudes vs INNER JOIN usuarios u ON vs.usuario_id = u.IDempleado LEFT JOIN filiales f ON u.filial_id = f.IDfilial LEFT JOIN puestos p ON u.puesto_id = p.IDpuesto WHERE YEAR(vs.fecha_inicio) = ? AND MONTH(vs.fecha_inicio) = ? GROUP BY u.IDempleado, u.Nombre, f.nombre_filial, p.nombre ORDER BY u.Nombre",
+      [anio, mes]
+    );
+    console.log(rows);
+    return rows;
+  }
 }
 
 module.exports = SolicitudVacaciones;

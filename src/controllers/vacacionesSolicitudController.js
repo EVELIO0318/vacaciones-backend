@@ -124,7 +124,7 @@ const deleteSolicitud = async (req, res, next) => {
 };
 
 const getSolicitudByUser = async (req, res, next) => {
-  const {IDempleado} = req.query;
+  const { IDempleado } = req.query;
   try {
     if (!IDempleado) {
       return res.status(400).json({ error: "Falta el ID del empleado" });
@@ -144,9 +144,31 @@ const getSolicitudByUser = async (req, res, next) => {
   }
 };
 
+const daysByDates = async (req, res, next) => {
+  const { mes, anio } = req.query;
+  try {
+    if (!mes) {
+      return res.status(400).json({ error: "Falta el Mes" });
+    }
+    if (!anio) {
+      return res.status(400).json({ error: "Falta el Año" });
+    }
+    const data = await solicitudVacacionesService.DiasPorMes(mes, anio);
+    res.status(200).json({
+      data,
+    });
+    res;
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 module.exports = {
   crearSolicitud,
   actualizarSolicitud,
   deleteSolicitud,
   getSolicitudByUser,
+  daysByDates,
 };

@@ -228,3 +228,8 @@ exports.solicitudesPorUsuario = async (IDempleado) => {
 
   return solicitudes;
 };
+
+exports.DiasPorMes = async (mes, anio) => {
+  const data = await vacacionesSolicitudModelo.solicitudMensual(mes, anio);
+  return data;
+};

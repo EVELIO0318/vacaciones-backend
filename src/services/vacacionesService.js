@@ -84,3 +84,13 @@ exports.vacacionesPorEmpleados = async (IDempleado) => {
   const emplsvacas = await Vacaciones.GetVacationByBoss(IDempleado);
   return emplsvacas;
 };
+
+exports.vacacionesAllEmpleados = async () => {
+  const allHolidaysUsers = await Vacaciones.GetVacationAll();
+  return allHolidaysUsers;
+};
+
+exports.DiasPendientes = async (days) => {
+  const pendientesdias = await Vacaciones.GetPending(days);
+  return pendientesdias;
+};

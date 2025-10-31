@@ -6,7 +6,7 @@ const roleMiddleware = require("../middlewares/roleMidleware");
 const router = express.Router();
 
 router.use(authMiddleware);
-router.use(roleMiddleware(["Admin", "TH"]));
+router.use(roleMiddleware(["ADMIN", "TH"]));
 
 router.get("/Allpuestos", puestosController.AllPuestos);
 router.post("/SaveP", puestosController.savePuesto);

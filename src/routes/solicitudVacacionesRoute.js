@@ -36,7 +36,7 @@ const upload = multer({ storage, fileFilter });
 router.post(
   "/saveSolicitud",
   authMiddleware,
-  roleMiddleware(["Admin", "GERENCIAL"]),
+  roleMiddleware(["ADMIN", "GERENCIAL"]),
   upload.single("pdf_solicitud"),
   SolicitudController.crearSolicitud
 );
@@ -44,7 +44,7 @@ router.post(
 router.put(
   "/UpdateSolicitud",
   authMiddleware,
-  roleMiddleware(["Admin", "GERENCIAL"]),
+  roleMiddleware(["ADMIN", "GERENCIAL"]),
   upload.single("pdf_solicitud"),
   SolicitudController.actualizarSolicitud
 );
@@ -52,15 +52,22 @@ router.put(
 router.delete(
   "/DeleteSolicitud",
   authMiddleware,
-  roleMiddleware(["Admin", "GERENCIAL"]),
+  roleMiddleware(["ADMIN", "GERENCIAL"]),
   SolicitudController.deleteSolicitud
 );
 
 router.get(
   "/solicitudesByUser",
   authMiddleware,
-  roleMiddleware(["Admin", "GERENCIAL"]),
+  roleMiddleware(["ADMIN", "GERENCIAL", "TH"]),
   SolicitudController.getSolicitudByUser
+);
+
+router.get(
+  "/ReporteMensual",
+  authMiddleware,
+  roleMiddleware(["ADMIN", "GERENCIAL", "TH"]),
+  SolicitudController.daysByDates
 );
 
 module.exports = router;

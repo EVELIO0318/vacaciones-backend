@@ -58,8 +58,49 @@ const getHolidaysXemployers = async (req, res, next) => {
   }
 };
 
+const getHolidaysAll = async (req, res, next) => {
+  try {
+    const data = await VacacionesService.vacacionesAllEmpleados();
+    const dataConIndex = data.map((item, index) => ({
+      index: index + 1,
+      ...item,
+    }));
+
+    return res.status(200).json(dataConIndex);
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const pendingDays = async (req, res, next) => {
+  const { days } = req.query;
+  try {
+    if (!days) {
+      return res.status(400).json({
+        success: false,
+        message: "No hay dias",
+      });
+    }
+
+    const pendingsDays = await VacacionesService.DiasPendientes(days);
+    res.status(200).json({
+      pendingsDays,
+    });
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   ejecutarAsignacion,
   getDays,
   getHolidaysXemployers,
+  getHolidaysAll,
+  pendingDays,
 };

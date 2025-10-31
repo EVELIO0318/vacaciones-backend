@@ -6,7 +6,7 @@ const roleMiddleware = require("../middlewares/roleMidleware");
 const router = express.Router();
 
 router.use(authMiddleware);
-router.use(roleMiddleware(["Admin", "TH"]));
+router.use(roleMiddleware(["ADMIN", "TH"]));
 
 router.get("/AllFiliales", filialesController.getAllFiliales);
 router.post("/saveFilial", filialesController.saveFiliales);

@@ -8,7 +8,7 @@ const router=express.Router();
 
 
 router.use(authMiddleware);
-router.use(roleMiddleware(["Admin", "TH"]));
+router.use(roleMiddleware(["ADMIN", "TH"]));
 
 router.get('/Allnotificaciones',notificacionesController.getNotificaciones);
 router.put('/ReadNotifications',notificacionesController.marcarLeidas);

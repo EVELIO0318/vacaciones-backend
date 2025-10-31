@@ -72,6 +72,23 @@ class Vacaciones {
 
     return rows;
   }
+
+  static async GetVacationAll() {
+    const [rows] = await db.execute(
+      "SELECT v.IDvacaciones, u.IDempleado, u.Nombre, u.Filial_id, f.nombre_filial, u.fecha_ingreso, u.puesto_id, p.nombre AS nombre_puesto, SUM(v.dias_asignados) AS total_asignados, SUM(v.dias_tomados) AS total_tomados, SUM(v.dias_restantes) AS total_restantes FROM usuarios u LEFT JOIN vacaciones v ON u.IDempleado = v.usuario_id LEFT JOIN filiales f ON u.Filial_id = f.IDfilial LEFT JOIN puestos p ON u.puesto_id = p.IDpuesto GROUP BY u.IDempleado, u.Nombre, u.Filial_id, f.nombre_filial, u.fecha_ingreso, u.puesto_id, p.nombre"
+    );
+
+    return rows;
+  }
+
+  static async GetPending(Days) {
+    const [rows] = await db.execute(
+      "SELECT u.IDempleado, u.Nombre, u.Filial_id, f.nombre_filial, u.fecha_ingreso, u.puesto_id, p.nombre AS nombre_puesto, j.Nombre AS nombre_jefe_inmediato, COALESCE(SUM(v.dias_asignados), 0) AS total_asignados, COALESCE(SUM(v.dias_tomados), 0) AS total_tomados, COALESCE(SUM(v.dias_restantes), 0) AS total_restantes FROM usuarios u LEFT JOIN vacaciones v ON u.IDempleado = v.usuario_id LEFT JOIN filiales f ON u.Filial_id = f.IDfilial LEFT JOIN puestos p ON u.puesto_id = p.IDpuesto LEFT JOIN usuarios j ON u.jefe_inmediato = j.IDempleado GROUP BY u.IDempleado, u.Nombre, u.Filial_id, f.nombre_filial, u.fecha_ingreso, u.puesto_id, p.nombre, j.Nombre HAVING total_restantes >= ? ORDER BY total_restantes DESC",
+      [Days]
+    );
+
+    return rows;
+  }
 }
 
 module.exports = Vacaciones;
