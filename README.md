@@ -33,27 +33,7 @@ El sistema tiene en cuenta:
 ✔️ Node.js  
 ✔ Express.js  
 ✔ API REST  
-✔ JSON como formato de datos  
-✔ (Opcional) Base de datos según configuración  
-
----
-
-## 📂 Estructura del proyecto
-
-vacaciones-backend/
-├── src/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── services/
-│ └── middlewares/
-├── uploads/
-├── .gitignore
-├── app.js
-├── package.json
-└── package-lock.json
-
-
+✔ JSON como formato de datos   
 ---
 
 ## 🚀 Instalación
