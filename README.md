@@ -25,7 +25,6 @@ El sistema tiene en cuenta:
    - Se verifica la disponibilidad de días.
    - Se descuentan primero los días más antiguos.
    - Se actualiza el registro de días disponibles.
-
 ---
 
 ## 📦 Tecnologías
@@ -59,12 +58,8 @@ nodemon app.js
 por defecto se levanta en: http://localhost:3000
 
 ---
-
-
-
-👨‍💻 Autor
+## 👨‍💻 Autor
 Ing. Evelio Escobar
 📌 Ingeniero en Sistemas y Docente Bilingüe
 ✈️ Apasionado por los viajes y la tecnología
-
 
