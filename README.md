@@ -4,7 +4,7 @@
 ![API REST](https://img.shields.io/badge/API-REST-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Backend del **Sistema de Cálculo de Vacaciones**, una API REST en **Node.js** que gestiona el cálculo de días de vacaciones acumulados por cada año laboral y la asignación de esos días según antigüedad. :contentReference[oaicite:1]{index=1}
+Backend del **Sistema de Cálculo de Vacaciones**, una API REST en **Node.js** que gestiona el cálculo de días de vacaciones acumulados por cada año laboral y la asignación de esos días según antigüedad.
 
 ---
 
@@ -36,30 +36,38 @@ El sistema tiene en cuenta:
 ---
 
 ## 🚀 Instalación
-
-1. **Clonar el repositorio**
-```bash
-git clone https://github.com/EVELIO0318/vacaciones-backend.git
-
-2. Ir a la carpeta
-cd vacaciones-backend
-
-3. Instalar dependencias
-npm install
-
-4. Configurar variables de entorno
-Crea un archivo .env (si aplica) con tus variables:
-PORT=3000
-DB_URL=tu_conexion_de_bd
-
-5. Iniciar el servidor
-nodemon app.js
-
-por defecto se levanta en: http://localhost:3000
+   
+   1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/EVELIO0318/vacaciones-backend.git
+   
+   2. Ir a la carpeta
+   cd vacaciones-backend
+   
+   3. Instalar dependencias
+   npm install
+   
+   4. Configurar variables de entorno
+   Crea un archivo .env (si aplica) con tus variables:
+   PORT=3000
+   DB_URL=tu_conexion_de_bd
+   
+   5. Iniciar el servidor
+   nodemon app.js
+   
+   por defecto se levanta en: http://localhost:3000
+ ```
 
 ---
+
 ## 👨‍💻 Autor
 Ing. Evelio Escobar
 📌 Ingeniero en Sistemas y Docente Bilingüe
 ✈️ Apasionado por los viajes y la tecnología
 
+
+📧 Contacto
+Evelio Escobar
+📩 evelio.villeda9@gmail.com
+
+¡Gracias por visitar este proyecto! 🚀
