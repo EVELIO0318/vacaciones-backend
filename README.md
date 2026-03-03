@@ -46,13 +46,22 @@ El sistema tiene en cuenta:
    
    3. Instalar dependencias
    npm install
+
+   4. Importa la base de datos en tu gestor MYSQL
    
-   4. Configurar variables de entorno
-   Crea un archivo .env (si aplica) con tus variables:
+   5. Configurar variables de entorno
+   Crea un archivo .env:
+
+   DB_HOST=<Tu IP del server>
+   DB_USER=<tu usuario de bd o root>
+   DB_PASSWORD= <tu password definido o vacio si no tienes>
+   DB_NAME=th_vacaciones
    PORT=3000
-   DB_URL=tu_conexion_de_bd
+   JWT_SECRET=Temporal
+   EMAIL_FROM=<UN CORREO DE OUTLOOK O HOTMAIL>
+   PASS_EMAIL=<CONTRASEÑA DEL CORREO>
    
-   5. Iniciar el servidor
+   6. Iniciar el servidor
    nodemon app.js
    
    por defecto se levanta en: http://localhost:3000
